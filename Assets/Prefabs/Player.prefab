@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075809079061547150}
+  - component: {fileID: 1075809079061547138}
   - component: {fileID: 1075809079061547136}
   - component: {fileID: 1075809079061547151}
-  - component: {fileID: 1075809079061547138}
   - component: {fileID: 1075809079061547137}
   m_Layer: 0
   m_Name: Dog
@@ -35,6 +35,22 @@ Transform:
   m_Father: {fileID: 1075809079461719975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1075809079061547138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075809079061547149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4583f15c6345f5348958d4efcd9ef15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  animator: {fileID: 1075809079061547151}
+  spriteRenderer: {fileID: 1075809079061547136}
+  divideNumber: 2
 --- !u!212 &1075809079061547136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,22 +124,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1075809079061547138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075809079061547149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4583f15c6345f5348958d4efcd9ef15a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 0
-  animator: {fileID: 1075809079061547151}
-  spriteRenderer: {fileID: 1075809079061547136}
-  divideNumber: 2
 --- !u!114 &1075809079061547137
 MonoBehaviour:
   m_ObjectHideFlags: 0

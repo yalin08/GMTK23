@@ -9,7 +9,7 @@ public class PlayerController : Singleton<PlayerController>
 
 
     private Rigidbody2D rb;
-    public Animator animator;
+
 
     void Start()
     {
@@ -27,6 +27,7 @@ public class PlayerController : Singleton<PlayerController>
         if (movement.magnitude > 1f)
         {
             movement = movement.normalized;
+         
         }
 
        
@@ -43,6 +44,8 @@ public class PlayerController : Singleton<PlayerController>
         if (moveX != 0 || moveY != 0)
         {
             PlayerAnimationController.Instance.MoveAnimation();
+            CameraFollow.Instance.offset.x = movement.x/3;
+            CameraFollow.Instance.offset.y = movement.y/3;
         }
         else
         {

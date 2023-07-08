@@ -7,6 +7,7 @@ using Pixelplacement;
 [System.Serializable]
 public class Stats
 {
+    [HideInInspector] public string s;
     public float speed;
     public float health;
     public float maxhealth;

@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pixelplacement;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : Singleton<CameraFollow>
 {
 
-    public GameObject FollowObject;
-    public float followSpeed;
 
-    private void FixedUpdate()
+    public Transform target;         
+    public float smoothSpeed = 0.5f;  
+    public Vector3 offset;          
+
+    private void LateUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, FollowObject.transform.position,PlayerStats.Instance.Stats.speed*0.95f);
+        Vector3 desiredPosition = target.position + offset; 
+        desiredPosition.z = -10f;
+        Vector3 smoothedPosition = Vector3.MoveTowards(transform.position, desiredPosition, smoothSpeed*Time.timeScale);
+        transform.position = smoothedPosition;
     }
 }
