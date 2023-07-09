@@ -169,6 +169,7 @@ MonoBehaviour:
   animator: {fileID: 8446599231227546853}
   rarity: 0
   BulletCount: 0
+  pierce: 1
   onAir: 0
 --- !u!50 &2750832978096898446
 Rigidbody2D:

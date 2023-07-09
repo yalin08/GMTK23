@@ -168,7 +168,7 @@ MonoBehaviour:
   - {x: -0.04954931, y: -0.05561341, z: 0}
   m_ShapePathHash: 533089922
   m_Mesh: {fileID: 0}
-  m_InstanceId: 38568
+  m_InstanceId: 87200
   m_LocalBounds:
     m_Center: {x: -0.022688255, y: -0.020700563, z: 0}
     m_Extent: {x: 0.06268031, y: 0.036560435, z: 0}
@@ -188,9 +188,10 @@ GameObject:
   - component: {fileID: 1075809079461719992}
   - component: {fileID: 1075809079461719993}
   - component: {fileID: 7447920498553621058}
+  - component: {fileID: 1768968565}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 0
+  rb: {fileID: 0}
   CompanionPoint: {fileID: 820788819469163931}
   CompanionRunPoint: {fileID: 8361719748765179191}
   ChangePositionTimer: 3
@@ -271,6 +273,7 @@ MonoBehaviour:
     shootingRange: 0
   ThrowForce: 7
   canbedamagedtimer: 1
+  knockbackAmount: 0.5
   col: {fileID: 1075809079461719993}
 --- !u!114 &1075809079461719972
 MonoBehaviour:
@@ -357,6 +360,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19921117, y: 0.08833434}
   m_EdgeRadius: 0
+--- !u!114 &1768968565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075809079461719971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b763f95dc35d04a8eb196d030519d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  SelectedChest: {fileID: 0}
+  allChest: []
 --- !u!1 &4376564149877396973
 GameObject:
   m_ObjectHideFlags: 0

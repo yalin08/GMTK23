@@ -91,7 +91,7 @@ public class WandererMove : Singleton<WandererMove>
 
         if (DistanceToDog > 20)
         {
-            WandererStats.Instance.col.isTrigger = true;
+            transform.position = companionRunPoint.position;
 
         }
 

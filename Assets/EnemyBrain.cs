@@ -8,21 +8,27 @@ public class EnemyBrain : MonoBehaviour
     public Transform Wanderer; // preffered target
     public Transform Dog; // will attack if has to
     private Transform currentTarget;
-    EnemyStats stats;
+    public EnemyStats stats;
     EnemyAnimationController eac;
+
+    public float seedistanceMax, seedistanceMin;
 
     public float seeDistance;
     private void Start()
     {
+        Enemies.Instance.enemiesList.Add(this);
         stats = GetComponent<EnemyStats>();
         Wanderer = WandererBrain.Instance.transform;
         Dog = PlayerController.Instance.transform;
         eac = GetComponentInChildren<EnemyAnimationController>();
         currentTarget = Wanderer;
+        seeDistance = Random.Range(seedistanceMin, seedistanceMax);
     }
 
     private void Update()
     {
+        if (Vector2.Distance(transform.position, PlayerStats.Instance.transform.position) > 20)
+            transform.position = PlayerStats.Instance.transform.position +new Vector3(Random.Range(-4f,4f), Random.Range(-4f, 4f),0) ;
 
         float preferredDistance = Vector3.Distance(transform.position, Wanderer.position);
         float otherDistance = Vector3.Distance(transform.position, Dog.position);

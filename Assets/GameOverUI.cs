@@ -11,6 +11,7 @@ public class GameOverUI : Singleton<GameOverUI>
 
     public void RestartGame()
     {
+        Debug.Log("hehehe");
         SceneManager.LoadScene("SampleScene");
         Time.timeScale = 1;
     }

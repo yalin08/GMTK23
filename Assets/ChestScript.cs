@@ -26,7 +26,7 @@ public class ChestScript : MonoBehaviour
     }
     private void Update()
     {
-        if (this == PlayerChestDetector.Instance.SelectedChest)
+        if (this == PlayerChestDetector.Instance.SelectedChest && Vector2.Distance(transform.position, PlayerChestDetector.Instance.transform.position)<2)
         {
             LightUp();
         }
@@ -43,7 +43,7 @@ public class ChestScript : MonoBehaviour
             return;
 
         AudioManager.Instance.PlaySound("ChestOpen");
-        
+        specialChest.Instance.firstDoor.SetActive(false);
         gameObject.tag = "Untagged";
         Destroy(outline);
         Instantiate(ItemParticle,transform.position,Quaternion.identity);
@@ -51,6 +51,7 @@ public class ChestScript : MonoBehaviour
         BoneManager.Instance.SpendBones(Price);
 
         sr.sprite = BoneManager.Instance.OpenChest;
+            ;
         Destroy(this);
     }
 

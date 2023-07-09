@@ -65,7 +65,7 @@ public class PlayerStats : Singleton<PlayerStats>
         Vector3 direction = (transform.position - enemy.position);
 
         direction.Normalize();
-        transform.DOMove(transform.position+direction* knockbackAmount, 1);
+        transform.DOMove(transform.position+direction* knockbackAmount, 0.3f);
     }
     public void TakeDamage(float damage)
     {

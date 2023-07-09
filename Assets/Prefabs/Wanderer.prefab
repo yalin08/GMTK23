@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9114743638994032163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: handLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   - {x: 0.14500004, y: -0.18, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 108654
+  m_InstanceId: 246310
   m_LocalBounds:
     m_Center: {x: 0.000000014901161, y: 0, z: 0}
     m_Extent: {x: 0.14500003, y: 0.18, z: 0}
@@ -225,6 +225,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   CanShoot: 1
   CanShootTimer: 2
+  closestEnemy: {fileID: 0}
 --- !u!114 &4706827503323579456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +266,9 @@ MonoBehaviour:
     Bulletlifespan: 0
     shootingRange: 0
   weaponexplodeparticle: {fileID: 5941794448625915589, guid: 382276d58119e1f4b84f78e83c8fa47b, type: 3}
+  CanBeDamaged: 1
   canbedamagedtimer: 1
+  knockbackAmount: 0
   col: {fileID: 2284200414552457398}
 --- !u!114 &5880365884356362789
 MonoBehaviour:
@@ -363,7 +366,7 @@ MonoBehaviour:
   - {x: 0.020024542, y: -0.076983005, z: 0}
   m_ShapePathHash: 2126873738
   m_Mesh: {fileID: 0}
-  m_InstanceId: 108658
+  m_InstanceId: 246314
   m_LocalBounds:
     m_Center: {x: 0.011902813, y: 0.0026003197, z: 0}
     m_Extent: {x: 0.00812173, y: 0.080623455, z: 0}

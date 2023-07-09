@@ -52,6 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wanderer: {fileID: 0}
   Dog: {fileID: 0}
+  stats: {fileID: 429167463597968740}
+  seedistanceMax: 15
+  seedistanceMin: 10
   seeDistance: 5
 --- !u!114 &429167463597968740
 MonoBehaviour:
@@ -101,7 +104,7 @@ MonoBehaviour:
   - {x: 0.066029906, y: -0.37116513, z: 0}
   m_ShapePathHash: 702213697
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29178
+  m_InstanceId: 802104
   m_LocalBounds:
     m_Center: {x: 0.037394106, y: -0.086943656, z: 0}
     m_Extent: {x: 0.035616457, y: 0.28761187, z: 0}
