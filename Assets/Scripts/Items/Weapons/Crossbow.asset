@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4a5697ebe44d4685956c9296f7e44, type: 3}
+  m_Name: Crossbow
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 4032120869420855919, guid: 60dc52bb92fc593479da02cef94c86b6, type: 3}
+  weaponBullet: {fileID: 5496348581451973743, guid: 319226c505513aa42a3f344d03175df9, type: 3}
+  BulletCount: 10
+  pierce: 5
+  stats:
+  - s: common
+    speed: 0
+    health: 0
+    maxhealth: 0
+    damage: 20
+    attackSpeed: 0.5
+    Bulletspeed: 5
+    Bulletlifespan: 2
+    shootingRange: 20
+  - s: uncommon
+    speed: 0
+    health: 0
+    maxhealth: 0
+    damage: 25
+    attackSpeed: 0.7
+    Bulletspeed: 5
+    Bulletlifespan: 2
+    shootingRange: 20
+  - s: rare
+    speed: 0
+    health: 0
+    maxhealth: 0
+    damage: 25
+    attackSpeed: 0.9
+    Bulletspeed: 6
+    Bulletlifespan: 2
+    shootingRange: 22
+  - s: epic
+    speed: 0
+    health: 0
+    maxhealth: 0
+    damage: 30
+    attackSpeed: 1.2
+    Bulletspeed: 7
+    Bulletlifespan: 2
+    shootingRange: 23
+  - s: legendary
+    speed: 0
+    health: 0
+    maxhealth: 0
+    damage: 35
+    attackSpeed: 1.5
+    Bulletspeed: 7
+    Bulletlifespan: 1.5
+    shootingRange: 25

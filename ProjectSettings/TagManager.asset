@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wanderer
+  - Dog
+  - Enemy
   - 
   - 
   - 
@@ -38,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Grass
+    uniqueID: 3162050223
+    locked: 0
+  - name: floor
+    uniqueID: 4201808711
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: bullets
+    uniqueID: 3721917583
     locked: 0

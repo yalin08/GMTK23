@@ -11,9 +11,11 @@ public enum Rarity
 [CreateAssetMenu(menuName = "Weapons/Weapon")]
 public class WeaponsBase : ScriptableObject
 {
-    public Rarity rarity;
+    
     public GameObject weaponPrefab;
     public GameObject weaponBullet;
+    public int BulletCount;
+    public int pierce=1;
     public Stats[] stats=new Stats[(Enum.GetValues(typeof(Rarity)).Length)];
     private void OnValidate()
     {
