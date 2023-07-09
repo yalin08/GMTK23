@@ -23,12 +23,12 @@ public class WandererMove : Singleton<WandererMove>
     {
         Stop = true;
         rb.velocity = Vector2.zero; 
-        WandererAnimations.Instance.IdleAnimation();
+
     }
     void MoveTo(Transform point)
     {
         Vector2 direction = (point.position - transform.position);
-        WandererAnimations.Instance.MoveAnimation();
+      
         direction.Normalize();
         //  rb.AddForce(direction* WandererStats.Instance.Stats.speed);
 
@@ -43,29 +43,66 @@ public class WandererMove : Singleton<WandererMove>
     {
         float DistanceToMovePoint = Vector2.Distance(transform.position, companionPoint.position);
          float DistanceToDog = Vector2.Distance(transform.position,PlayerController.Instance.transform.position);
-
-        if (DistanceToDog < StartFollowDistance)
+        if (WandererStats.Instance.CanBeDamaged)
         {
-            if (DistanceToMovePoint > stopFollowDistance )
+            if (DistanceToDog < StartFollowDistance)
             {
-                if(!Stop)
-                MoveTo(companionPoint.transform);
-                
+                if (DistanceToMovePoint > stopFollowDistance)
+                {
+                    if (!Stop)
+                        MoveTo(companionPoint.transform);
+
+                }
+                else
+                    StopMove();
             }
             else
-                StopMove();
+            {
+                float DistanceToRunPoint = Vector2.Distance(transform.position, companionRunPoint.position);
+                if (DistanceToRunPoint > stopFollowDistance)
+                    MoveTo(companionRunPoint.transform);
+                else
+                    StopMove();
+            }
         }
         else
         {
-            float DistanceToRunPoint = Vector2.Distance(transform.position, companionRunPoint.position);
-            if (DistanceToRunPoint > stopFollowDistance)
-                MoveTo(companionRunPoint.transform);
+            if (WandererBrain.Instance.closestEnemy != null)
+            {
+                Vector2 direction = ( transform.position- WandererBrain.Instance.closestEnemy.transform.position);
+                
+                direction.Normalize();
+                //  rb.AddForce(direction* WandererStats.Instance.Stats.speed);
+
+                rb.velocity = direction * PlayerStats.Instance.Stats.speed;
+                if (rb.velocity.x > 0)
+                    WandererAnimations.Instance.TurnLeft();
+                if (rb.velocity.x < 0)
+                    WandererAnimations.Instance.TurnRight();
+            }
             else
-                StopMove();
+            {
+                MoveTo(companionRunPoint);
+
+
+            }
         }
-           
 
 
+        if (DistanceToDog > 20)
+        {
+            WandererStats.Instance.col.isTrigger = true;
+
+        }
+
+        if (rb.velocity == Vector2.zero)
+        {
+            WandererAnimations.Instance.IdleAnimation();
+        }
+        else
+        {
+             WandererAnimations.Instance.MoveAnimation();
+        }
 
 
         //  transform.position = Vector2.MoveTowards(transform.position, companionPoint.position, WandererStats.Instance.Stats.speed); 

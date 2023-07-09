@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using DG.Tweening;
 
 
 [System.Serializable]
@@ -30,7 +31,9 @@ public class PlayerStats : Singleton<PlayerStats>
     public float ThrowForce;
     public float canbedamagedtimer;
     float timer;
-    bool CanBeDamaged;
+    public float knockbackAmount;
+    bool CanBeDamaged=true;
+    public BoxCollider2D col;
 
     // Start is called before the first frame update
     void Start()
@@ -44,44 +47,59 @@ public class PlayerStats : Singleton<PlayerStats>
 
         if (!CanBeDamaged)
         {
+            col.isTrigger = true;
+            PlayerAnimationController.Instance.spriteRenderer.color = ColorsHolder.Instance.GetHitColor;
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                col.isTrigger = false;
                 timer = canbedamagedtimer;
+                PlayerAnimationController.Instance.spriteRenderer.color = Color.white;
                 CanBeDamaged = true;
             }
         }
+    }
+
+    public void KnockBack(Transform enemy)
+    {
+        Vector3 direction = (transform.position - enemy.position);
+
+        direction.Normalize();
+        transform.DOMove(transform.position+direction* knockbackAmount, 1);
     }
     public void TakeDamage(float damage)
     {
         Stats.health -= damage;
 
+       
+        AudioManager.Instance.PlaySound("DogGotHit");
 
-
+        CameraFollow.Instance.ShakeCameraOnHit(1);
 
         if (Stats.health <= 0)
         {
             die();
         }
-        else if (Stats.health <= Stats.maxhealth * 0.3f)
-        {
-            HumanTalkStrings.Instance.Talk(4); //low health
-        }
+    
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (CanBeDamaged)
             if (collision.CompareTag("Enemy"))
             {
                 CanBeDamaged = false;
+                KnockBack(collision.transform);
                 TakeDamage(collision.GetComponent<EnemyStats>().stats.damage);
             }
     }
 
+
     public void die()
     {
-
+        Time.timeScale = 0;
+        GameOverUI.Instance.LoseUI.SetActive(true);
     }
 }
 

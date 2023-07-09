@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pixelplacement;
 
-public class GunInInventory : MonoBehaviour
+public class GunInInventory : Singleton<GunInInventory>
 {
 
     public List<Image> WeaponUIList;
 
-    private void Update()
+    private void Start()
+    {
+        UpdateWpInventory();
+    }
+    public void UpdateWpInventory()
     {
         if (WandererStats.Instance.CurrentWeapon != null)
         {

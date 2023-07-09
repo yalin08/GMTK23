@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4a5697ebe44d4685956c9296f7e44, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
+  Description: Fast but not very strong
   weaponPrefab: {fileID: 4032120869420855919, guid: 3801ead70a69d974fae5a36cb0f00860, type: 3}
   weaponBullet: {fileID: 3657883201342123499, guid: b38f5d7c19fbcb34db1b5435de13c867, type: 3}
   BulletCount: 12

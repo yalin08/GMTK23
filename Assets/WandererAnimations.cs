@@ -18,6 +18,8 @@ public class WandererAnimations : Singleton<WandererAnimations>
         }
 
     }
+
+
     public void Die()
     {
         animator.SetTrigger("Die");

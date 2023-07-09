@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
-
+using DG.Tweening;
 
 public class WandererStats : Singleton<WandererStats>
 {
@@ -12,10 +12,14 @@ public class WandererStats : Singleton<WandererStats>
     public Transform HandLocation;
     public Stats Stats;
     public GameObject weaponexplodeparticle;
-    bool CanBeDamaged;
+    public bool CanBeDamaged = true;
     float timer;
     public float canbedamagedtimer;
     float lowAmmo;
+    public float knockbackAmount;
+
+    public BoxCollider2D col;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -49,25 +53,38 @@ public class WandererStats : Singleton<WandererStats>
                 }
                 else NoWeapons();
 
+
+                GunInInventory.Instance.UpdateWpInventory();
             }
         }
 
         if (!CanBeDamaged)
         {
+            col.isTrigger = true;
+            WandererAnimations.Instance.spriteRenderer.color = ColorsHolder.Instance.GetHitColor;
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                col.isTrigger = false;
+                WandererAnimations.Instance.spriteRenderer.color = Color.white;
                 timer = canbedamagedtimer;
                 CanBeDamaged = true;
             }
         }
     }
+    public void KnockBack(Transform enemy)
+    {
+        Vector3 direction = (transform.position - enemy.position);
+
+        direction.Normalize();
+        transform.DOMove(transform.position + direction * knockbackAmount, 1f);
+    }
     public void TakeDamage(float damage)
     {
         Stats.health -= damage;
-        
 
-       
+        AudioManager.Instance.PlaySound("ManGotHit");
+
 
         if (Stats.health <= 0)
         {
@@ -75,16 +92,17 @@ public class WandererStats : Singleton<WandererStats>
         }
         else if (Stats.health <= Stats.maxhealth * 0.3f)
         {
-            HumanTalkStrings.Instance.Talk(4); //low health
+            HumanTalkStrings.Instance.Talk(6); //low health
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (CanBeDamaged)
             if (collision.CompareTag("Enemy"))
             {
                 CanBeDamaged = false;
+                KnockBack(collision.transform);
                 TakeDamage(collision.GetComponent<EnemyStats>().stats.damage);
             }
     }

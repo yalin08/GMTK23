@@ -16,11 +16,11 @@ public class WeaponScript : MonoBehaviour
 
     public bool onAir;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         stats = type.stats[(int)rarity];
         pierce = type.pierce;
-        BulletCount = type.BulletCount;
+        BulletCount = type.BulletCount* ((int)rarity+1);
      
         sr.material.SetColor("_ImageOutline", ColorsHolder.Instance.rarityColors[(int)rarity].Color);
 
@@ -37,6 +37,7 @@ public class WeaponScript : MonoBehaviour
       GameObject go=  Instantiate(WandererStats.Instance.weaponexplodeparticle, transform.position, transform.rotation);
         Destroy(go, 0.25f);
         Destroy(gameObject);
+       
     }
     public void ResetTorqueForce()
     {
@@ -62,9 +63,9 @@ public class WeaponScript : MonoBehaviour
 
     public void ShootBullet()
     {
-        Debug.Log("shoot");
+        AudioManager.Instance.PlaySound("Shoot");
 
-       GameObject bulllet= Instantiate(type.weaponBullet, transform.position, transform.rotation);
+        GameObject bulllet= Instantiate(type.weaponBullet, transform.position, transform.rotation);
         Destroy(bulllet,stats.Bulletlifespan);
         BulletScript bulletScript = bulllet.GetComponent<BulletScript>();
         animator.SetTrigger("Shoot");
@@ -79,10 +80,14 @@ public class WeaponScript : MonoBehaviour
         if (onAir)
             if (collision.CompareTag("Enemy"))
             {
-                //  Debug.Log((int)(type.stats[(int)rarity].damage));  Debug.Log((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
-                collision.GetComponent<EnemyStats>().TakeDamage((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
-
-                fckinExplode();
+                if (this != WandererStats.Instance.CurrentWeapon)
+                {
+                    //  Debug.Log((int)(type.stats[(int)rarity].damage));  Debug.Log((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
+                    collision.GetComponent<EnemyStats>().TakeDamage((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
+                    AudioManager.Instance.PlaySound("WeaponExplodeOnImpact");
+                    fckinExplode();
+                }
+               
             }
     }
 }

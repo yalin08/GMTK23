@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon
   - Enemy
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
     locked: 0
   - name: floor
     uniqueID: 4201808711
+    locked: 0
+  - name: Chest
+    uniqueID: 2054238481
     locked: 0
   - name: Default
     uniqueID: 0

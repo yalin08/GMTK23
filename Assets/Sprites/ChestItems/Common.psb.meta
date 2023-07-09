@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 680d3923aba5bdb4db4eb8b95127da77
+guid: 23e59527a8c0cc245a255302801442c1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -93,29 +93,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Ellipse 1 copy
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 41
-      width: 6
-      height: 6
-    spriteID: 673e3fafaaf54a041ac8183c5812036e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 41}
-    spritePosition: {x: 2, y: 5}
-  - name: Layer 19
+  - name: Ellipse 1 copy 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -125,8 +103,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 10
-      height: 29
-    spriteID: 66bf7065b477c834b824e814899c1657
+      height: 11
+    spriteID: 0e5416b11cf9d4e4ba2abbe76617054d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -136,7 +114,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 5}
   characterData:
     bones: []
     parts: []
@@ -150,62 +128,7 @@ ScriptedImporter:
     dimension: {x: 0, y: 0}
     characterGroups: []
     boneReadOnly: 0
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Android
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: iPhone
-    overridden: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
@@ -223,95 +146,105 @@ ScriptedImporter:
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: Ellipse 1 copy
-    spriteName: Ellipse 1 copy
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 673e3fafaaf54a041ac8183c5812036e
+    spriteID: b554b1a75de55ad46a49711aacb6e66a
     layerID: 126
-    mosaicPosition: {x: 4, y: 41}
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Ellipse 1 copy 3
+    spriteName: Ellipse 1 copy 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0e5416b11cf9d4e4ba2abbe76617054d
+    layerID: 130
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Ellipse 1 copy 2
-    spriteName: Ellipse 1 copy 2
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 86ac65f5902505c48bc3df2344924f37
+    spriteID: f6018216d6a43ae4897edac78b0d38a9
     layerID: 129
-    mosaicPosition: {x: 18, y: 4}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Ellipse 1
-    spriteName: Ellipse 1
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: bdb8ecebe3dc9b8428a4375395e69c22
+    spriteID: ec679e1c2025f2e49b11ffe3e97f01b8
     layerID: 121
-    mosaicPosition: {x: 18, y: 48}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 18 copy 2
-    spriteName: Layer 18 copy 2
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 04859f9b6ad5cf3428b0134afb3e0d0c
+    spriteID: 2a3723a531aad294b8ad101d7670e42e
     layerID: 128
-    mosaicPosition: {x: 4, y: 55}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 18 copy
-    spriteName: Layer 18 copy
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 545186496f3a5b8468f78f14cc2bcdca
+    spriteID: 1e41006b3f99a6a4dbebc70afaa37a68
     layerID: 125
-    mosaicPosition: {x: 4, y: 30}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 18
-    spriteName: Layer 18
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 6aaa1cfd17dfa4f48a5e60d8fcdc8add
+    spriteID: da3f6c4600fe783498b8a4bc6f12dcb8
     layerID: 118
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 17
-    spriteName: Layer 17
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: a1cbb382c8f0db4428709ec7bbc416fa
+    spriteID: 8e6fb160a3da61340ae4981328eb29d6
     layerID: 117
-    mosaicPosition: {x: 18, y: 22}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 20
-    spriteName: Layer 20
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 89f51f9b659da7b4e8ff9f7208545c00
+    spriteID: 506e4ad26e988a34e8dc130f06b13351
     layerID: 120
-    mosaicPosition: {x: 36, y: 4}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
     isVisible: 0
   - name: Layer 19
-    spriteName: Layer 19
+    spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: 66bf7065b477c834b824e814899c1657
+    spriteID: 0236a2ab183c810449eb9569b0368cb0
     layerID: 119
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 0, y: 0}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   generateGOHierarchy: 0

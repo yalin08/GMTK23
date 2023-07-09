@@ -11,7 +11,7 @@ public class CameraFollow : Singleton<CameraFollow>
     public float smoothSpeed = 0.5f;  
     public Vector3 offset;
     public Vector3 offset2;
-    Camera main;
+    public Camera main;
     private void Start()
     {
         Vector3 desiredPosition = target.position + offset;
@@ -20,6 +20,10 @@ public class CameraFollow : Singleton<CameraFollow>
         transform.position = desiredPosition;
     }
 
+    public void ShakeCameraOnHit(float strength=3)
+    {
+        main.DOShakePosition(0.4f,strength);
+    }
 
     public void ShakeCam(Vector2 Direction,float ShakeStrength=1)
     {

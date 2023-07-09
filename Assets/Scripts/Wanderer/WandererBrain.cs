@@ -26,7 +26,7 @@ public class WandererBrain : Singleton<WandererBrain>
     }
 
 
-    public bool CanShoot=false;
+    public bool CanShoot = false;
     public float CanShootTimer;
     private void Start()
     {
@@ -39,7 +39,7 @@ public class WandererBrain : Singleton<WandererBrain>
             CanShootTimer = 1 / WandererStats.Instance.CurrentWeapon.stats.attackSpeed;
     }
 
-    EnemyBrain closestEnemy;
+    public EnemyBrain closestEnemy;
 
     private void Update()
     {
@@ -60,9 +60,10 @@ public class WandererBrain : Singleton<WandererBrain>
         if (Enemies.Instance.enemiesList.Count == 0)
         {
             WandererStats.Instance.CurrentWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+            WandererStats.Instance.CurrentWeapon.sr.flipY = false;
             return;
         }
-      
+
         closestEnemy = FindClosestEnemy();
         if (closestEnemy.transform.position.x > transform.position.x)
         {
@@ -82,7 +83,7 @@ public class WandererBrain : Singleton<WandererBrain>
 
         if (CanShoot)
         {
-         
+
 
             if (Vector2.Distance(closestEnemy.transform.position, transform.position) < WandererStats.Instance.CurrentWeapon.stats.shootingRange)
             {

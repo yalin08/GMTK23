@@ -13,12 +13,15 @@ public class WandererCatchGuns : MonoBehaviour
             {
                 ws.ResetTorqueForce();
 
-               
+                AudioManager.Instance.PlaySound("ManPickup");
+
+
                 if (WandererStats.Instance.CurrentWeapon == null)
                 {
                     WandererBrain.Instance.ResetShootTimer();
                     WandererStats.Instance.CurrentWeapon = ws;
                     WandererStats.Instance.ThankDog();
+                    GunInInventory.Instance.UpdateWpInventory();
                 }
                 else
                 {
@@ -34,7 +37,8 @@ public class WandererCatchGuns : MonoBehaviour
                         WandererStats.Instance.CurrentWeapons.Add(ws);
                         WandererStats.Instance.ThisllComeInHandy();
                     }
-                    ws.gameObject.SetActive(false);
+                    ws.gameObject.SetActive(false); 
+                    GunInInventory.Instance.UpdateWpInventory();
                 }
                 WandererStats.Instance.CurrentWeapon.ResetTorqueForce();
                 //   wa

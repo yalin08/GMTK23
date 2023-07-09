@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4a5697ebe44d4685956c9296f7e44, type: 3}
   m_Name: Crossbow
   m_EditorClassIdentifier: 
+  Description: Pierces through multiple enemies.
   weaponPrefab: {fileID: 4032120869420855919, guid: 60dc52bb92fc593479da02cef94c86b6, type: 3}
   weaponBullet: {fileID: 5496348581451973743, guid: 319226c505513aa42a3f344d03175df9, type: 3}
-  BulletCount: 10
+  BulletCount: 5
   pierce: 5
   stats:
   - s: common
@@ -22,7 +23,7 @@ MonoBehaviour:
     health: 0
     maxhealth: 0
     damage: 20
-    attackSpeed: 0.5
+    attackSpeed: 0.4
     Bulletspeed: 5
     Bulletlifespan: 2
     shootingRange: 20

@@ -62,8 +62,12 @@ public class DogPickupGun : Singleton<DogPickupGun>
             HoldingGun.transform.position = DogMouth.position;
 
 
+            WeaponDescription.Instance.ShowText(HoldingGun);
 
-
+        }
+        else
+        {
+            WeaponDescription.Instance.CloseText();
         }
 
     }
@@ -72,7 +76,7 @@ public class DogPickupGun : Singleton<DogPickupGun>
     {
 
         GameObject throwable = HoldingGun.gameObject;
-
+        AudioManager.Instance.PlaySound("DogThrow");
 
         HoldingGun.sr.flipX = false;
         Vector2 throwDirection = GetThrowDirection() / 2;
@@ -92,6 +96,7 @@ public class DogPickupGun : Singleton<DogPickupGun>
     public void TakeWeapon(WeaponScript GunOnFloor)
     {
         Debug.Log("took wpn");
+        AudioManager.Instance.PlaySound("DogPickup");
         HoldingGun = GunOnFloor;
         HoldingGun.enabled = false;
         gunonFront = null;

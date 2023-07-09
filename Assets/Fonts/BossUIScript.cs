@@ -24,7 +24,7 @@ public class BossUIScript : Singleton<BossUIScript>
                 yield break;
 
             counter += 1;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);
         }
 
     }

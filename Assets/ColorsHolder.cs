@@ -14,6 +14,7 @@ public class RarityColors
 public class ColorsHolder : Singleton<ColorsHolder>
 {
     public RarityColors[] rarityColors=new RarityColors[(Enum.GetValues(typeof(Rarity)).Length)];
+    public Color GetHitColor;
      private void OnValidate()
     {
         for (int i=0; i < (rarityColors.Length);i++)

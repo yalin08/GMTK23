@@ -10,10 +10,15 @@ public class HumanTalkStrings : Singleton<HumanTalkStrings>
 
     public TextMeshProUGUI text;
     public GameObject Bubble;
+    private void Start()
+    {
+        Talk(8);
+    }
+
 
     public void Talk(int i)
     {
-        if (Bubble.gameObject.active)
+        if (Bubble.gameObject.active && i!=5)
             return;
         Bubble.gameObject.SetActive(true);
         text.text = Strings[i];
@@ -25,6 +30,7 @@ public class HumanTalkStrings : Singleton<HumanTalkStrings>
         {
             f = 2f;
         }
+        StopAllCoroutines();
             StartCoroutine(DisableSelf(f));
 
        

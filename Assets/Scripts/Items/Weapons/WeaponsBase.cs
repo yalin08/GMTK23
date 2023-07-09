@@ -11,7 +11,7 @@ public enum Rarity
 [CreateAssetMenu(menuName = "Weapons/Weapon")]
 public class WeaponsBase : ScriptableObject
 {
-    
+    public string Description;
     public GameObject weaponPrefab;
     public GameObject weaponBullet;
     public int BulletCount;

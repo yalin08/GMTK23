@@ -8,7 +8,7 @@ public class PlayerController : Singleton<PlayerController>
 {
 
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Transform CompanionPoint;
     public Transform CompanionRunPoint;
 
