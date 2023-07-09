@@ -83,16 +83,22 @@ public class WandererStats : Singleton<WandererStats>
     {
         Stats.health -= damage;
 
-        AudioManager.Instance.PlaySound("ManGotHit");
+       
 
 
         if (Stats.health <= 0)
         {
             die();
+            AudioManager.Instance.PlaySound("HumanDie");
         }
         else if (Stats.health <= Stats.maxhealth * 0.3f)
         {
             HumanTalkStrings.Instance.Talk(6); //low health
+            AudioManager.Instance.PlaySound("ManGotHit");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("ManGotHit");
         }
 
     }

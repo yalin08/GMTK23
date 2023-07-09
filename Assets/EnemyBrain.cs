@@ -23,12 +23,31 @@ public class EnemyBrain : MonoBehaviour
         eac = GetComponentInChildren<EnemyAnimationController>();
         currentTarget = Wanderer;
         seeDistance = Random.Range(seedistanceMin, seedistanceMax);
+        Teleport = false;
+        
     }
 
+    private void OnEnable()
+    {
+        Teleport = false;
+        Invoke("openTeleport", 5);
+    }
+    public bool Teleport = false;
+
+    void openTeleport()
+    {
+       
+        Teleport = true;
+
+    }
     private void Update()
     {
-        if (Vector2.Distance(transform.position, PlayerStats.Instance.transform.position) > 20)
-            transform.position = PlayerStats.Instance.transform.position +new Vector3(Random.Range(-4f,4f), Random.Range(-4f, 4f),0) ;
+        if (Teleport)
+            if (Vector2.Distance(transform.position, PlayerStats.Instance.transform.position) > 15)
+            {
+                Teleport = false;
+                transform.position = PlayerStats.Instance.transform.position + new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), 0);
+            }
 
         float preferredDistance = Vector3.Distance(transform.position, Wanderer.position);
         float otherDistance = Vector3.Distance(transform.position, Dog.position);
@@ -39,7 +58,7 @@ public class EnemyBrain : MonoBehaviour
         }
         else { currentTarget = Wanderer; }
 
-        if(WandererStats.Instance.enabled==false) currentTarget = Dog;
+        if (WandererStats.Instance.enabled == false) currentTarget = Dog;
 
         if (Vector2.Distance(currentTarget.position, transform.position) < seeDistance)
         {
@@ -50,19 +69,19 @@ public class EnemyBrain : MonoBehaviour
         {
             eac.IdleAnimation();
         }
-      
+
     }
 
     private void MoveTowardsTarget(Transform target)
     {
 
         Vector3 direction = (target.position - transform.position).normalized;
-      
+
 
         if (target.position.x > transform.position.x)
         {
             eac.TurnLeft();
-          
+
         }
         else
         {

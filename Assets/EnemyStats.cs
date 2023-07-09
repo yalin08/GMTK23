@@ -6,7 +6,7 @@ public class EnemyStats : MonoBehaviour
 {
     public Stats stats;
     EnemyBrain brain;
-    
+
     void Start()
     {
         stats.health = stats.maxhealth;
@@ -14,6 +14,7 @@ public class EnemyStats : MonoBehaviour
     }
     public void TakeDamage(float DamageAmount)
     {
+        AudioManager.Instance.PlaySound("Enemyhit");
         stats.health -= DamageAmount;
         if (stats.health <= 0)
         {

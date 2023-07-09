@@ -34,7 +34,9 @@ public class WeaponScript : MonoBehaviour
 
     public void fckinExplode()
     {
-      GameObject go=  Instantiate(WandererStats.Instance.weaponexplodeparticle, transform.position, transform.rotation);
+        if (!sound) 
+        AudioManager.Instance.PlaySound("WeaponExplode");
+        GameObject go=  Instantiate(WandererStats.Instance.weaponexplodeparticle, transform.position, transform.rotation);
         Destroy(go, 0.25f);
         Destroy(gameObject);
        
@@ -83,6 +85,7 @@ public class WeaponScript : MonoBehaviour
         }
 
     }
+    bool sound=false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -96,6 +99,7 @@ public class WeaponScript : MonoBehaviour
                     //  Debug.Log((int)(type.stats[(int)rarity].damage));  Debug.Log((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
                     collision.GetComponent<EnemyStats>().TakeDamage((int)(type.stats[(int)rarity].damage * type.stats[(int)rarity].attackSpeed * BulletCount));
                     AudioManager.Instance.PlaySound("WeaponExplodeOnImpact");
+                    sound = true;
                     fckinExplode();
                 }
                

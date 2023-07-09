@@ -43,7 +43,7 @@ public class ChestScript : MonoBehaviour
             return;
 
         AudioManager.Instance.PlaySound("ChestOpen");
-        specialChest.Instance.firstDoor.SetActive(false);
+        specialChest.Instance.FirstChestOpen();
         gameObject.tag = "Untagged";
         Destroy(outline);
         Instantiate(ItemParticle,transform.position,Quaternion.identity);

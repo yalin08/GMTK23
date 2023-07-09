@@ -72,13 +72,18 @@ public class PlayerStats : Singleton<PlayerStats>
         Stats.health -= damage;
 
        
-        AudioManager.Instance.PlaySound("DogGotHit");
+       
 
         CameraFollow.Instance.ShakeCameraOnHit(1);
 
         if (Stats.health <= 0)
         {
             die();
+            AudioManager.Instance.PlaySound("DogDie");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("DogGotHit");
         }
     
 
