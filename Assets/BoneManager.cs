@@ -21,22 +21,26 @@ public class BoneManager : Singleton<BoneManager>
     public Rarity RandomRarity()
     {
         int i = Random.Range(0, 101);
-        if (i < uncommonChance)
+        Debug.Log(i);
+
+        if (i < LegendaryChance)
         {
-            return Rarity.uncommon;
-        }
-        else if (i < RareChance)
-        {
-            return Rarity.rare;
+            return Rarity.legendary;
         }
         else if (i < EpicChance)
         {
             return Rarity.epic;
         }
-        else if (i < LegendaryChance)
+        else if (i < RareChance)
         {
-            return Rarity.legendary;
+            return Rarity.rare;
         }
+
+        else if (i < uncommonChance)
+        {
+            return Rarity.uncommon;
+        }
+
         else
         {
             return Rarity.common;
